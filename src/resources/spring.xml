@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="
+        http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+    <!-- bean definitions here -->
+    <!--<bean id="parenttriangle" class="org.flysoohigh.beans.Triangle">-->
+        <!--<property name="points">-->
+            <!--<list>-->
+                <!--<bean id="point1" class="org.flysoohigh.beans.Point"/>-->
+            <!--</list>-->
+        <!--</property>-->
+    <!--</bean>-->
+
+    <bean id = "triangle" class = "org.flysoohigh.beans.Triangle" init-method="myInit" destroy-method="cleanUp">
+        <property name="points">
+            <list>
+                <ref bean="point1"/>
+                <ref bean="point2"/>
+                <ref bean="point3"/>
+            </list>
+        </property>
+        <!--<property name="triangleType" value="Equilateral"/>-->
+
+        <!--<constructor-arg index="0" value="Equilateral"/>-->
+        <!--<constructor-arg index="1" value="35"/>-->
+
+        <!--<constructor-arg type="java.lang.String" value="Equilateral"/>-->
+        <!--<constructor-arg type="int" value="35"/>-->
+
+        <!--<property name="pointA" ref="point1"/>-->
+        <!--<property name="pointB" ref="point2"/>-->
+        <!--<property name="pointC" ref="point3"/>-->
+
+        <!--<property name="points">-->
+            <!--<list>-->
+                <!--<ref bean="point1"/>-->
+                <!--<ref bean="point2"/>-->
+                <!--<ref bean="point3"/>-->
+            <!--</list>-->
+        <!--</property>-->
+    </bean>
+
+    <bean id="point1" class="org.flysoohigh.beans.Point">
+        <property name="x" value="${pointA.X}"/>
+        <property name="y" value="${pointA.Y}"/>
+    </bean>
+
+    <bean id="point2" class="org.flysoohigh.beans.Point">
+        <property name="x" value="0"/>
+        <property name="y" value="10"/>
+    </bean>
+
+    <bean id="point3" class="org.flysoohigh.beans.Point">
+        <property name="x" value="10"/>
+        <property name="y" value="0"/>
+    </bean>
+
+    <!--<bean class="org.flysoohigh.beans.DisplayNameBeanPostProcessor"/>-->
+
+    <bean class="org.springframework.beans.factory.config.PropertyPlaceholderConfigurer">
+        <property name="locations" value="resources\\points.properties"/>
+    </bean>
+
+    <alias name="triangle" alias="triangle-alias"/>
+    <alias name="point1" alias="pointA"/>
+    <alias name="point2" alias="pointB"/>
+    <alias name="point3" alias="pointC"/>
+
+</beans>
