@@ -57,6 +57,10 @@
         <property name="y" value="0"/>
     </bean>
 
+    <bean id="circle" class="org.flysoohigh.beans.Circle">
+        <property name="center" ref="point1"/>
+    </bean>
+
     <!--<bean class="org.flysoohigh.beans.DisplayNameBeanPostProcessor"/>-->
 
     <bean class="org.springframework.beans.factory.config.PropertyPlaceholderConfigurer">

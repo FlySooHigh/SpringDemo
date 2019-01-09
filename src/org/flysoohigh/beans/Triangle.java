@@ -1,5 +1,6 @@
 package org.flysoohigh.beans;
 
+import org.flysoohigh.interfaces.Shape;
 import org.springframework.beans.BeansException;
 import org.springframework.beans.factory.DisposableBean;
 import org.springframework.beans.factory.InitializingBean;
@@ -8,7 +9,7 @@ import org.springframework.context.ApplicationContextAware;
 
 import java.util.List;
 
-public class Triangle implements InitializingBean, DisposableBean{
+public class Triangle implements InitializingBean, DisposableBean, Shape{
 
 //    private Point pointA;
 //    private Point pointB;
