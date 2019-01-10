@@ -1,6 +1,8 @@
 package org.flysoohigh.beans;
 
 import org.flysoohigh.interfaces.Shape;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
 
 public class Circle implements Shape {
 
@@ -11,6 +13,8 @@ public class Circle implements Shape {
         return center;
     }
 
+    @Autowired
+    @Qualifier("circleRelated")
     public void setCenter(Point center) {
         this.center = center;
     }
